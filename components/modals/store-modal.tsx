@@ -27,8 +27,8 @@ const formSchema = z.object({
 });
 
 const StoreModal = () => {
-  const [loading, setLoading] = useState(false);
   const storeModal = useStoreModal();
+  const [loading, setLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,7 +42,6 @@ const StoreModal = () => {
       setLoading(true);
 
       const response = await axios.post("/api/stores", values);
-      // console.log(response.data);
       toast.success("Store Created.");
     } catch (error) {
       toast.error("Something went wrong.");
@@ -59,7 +58,7 @@ const StoreModal = () => {
       onClose={storeModal.onClose}
     >
       <div>
-        <div className="space-y-4 py-2 pb--4">
+        <div className="space-y-4 py-2 pb-4">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
