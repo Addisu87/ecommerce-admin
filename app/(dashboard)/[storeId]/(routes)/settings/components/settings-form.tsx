@@ -1,18 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import * as z from "zod";
-import { Trash } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Store } from "@prisma/client";
-import { toast } from "react-hot-toast";
 import axios from "axios";
-import { useRouter, useParams } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { Trash } from "lucide-react";
+import { Store } from "@prisma/client";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
 
-import Heading from "@/components/ui/heading";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import {
   Form,
   FormControl,
@@ -21,8 +20,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import Heading from "@/components/ui/heading";
 import AlertModal from "@/components/modals/alert-modal";
+import { Separator } from "@/components/ui/separator";
+import { useOrigin } from "@/hooks/use-origin";
+import { ApiAlert } from "@/components/ui/api-alert";
 
 interface SettingsFormProps {
   initialData: Store;
@@ -40,6 +42,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
 
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
 
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(formSchema),
@@ -75,14 +78,14 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
   };
 
   return (
-    <>
+    <div className="space-y-2 px-2">
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
         onConfirm={onDelete}
         loading={loading}
       />
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
         <Heading title="Settings" description="Manage store preferences." />
         <Button
           disabled={loading}
@@ -123,7 +126,15 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
-    </>
+
+      <Separator />
+
+      <ApiAlert
+        title="NEXT_PUBLIC_API_URL"
+        variant="public"
+        description={`${origin}/api/${params.storeId}`}
+      />
+    </div>
   );
 };
 
