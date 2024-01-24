@@ -19,6 +19,11 @@ export const MainNav = ({
       active: pathname === `/${params.storeId}/overview`,
     },
     {
+      href: `${params.storeId}/billboards`,
+      label: "Billboards",
+      active: pathname === `/${params.storeId}/billboards`,
+    },
+    {
       href: `${params.storeId}/settings`,
       label: "Settings",
       active: pathname === `/${params.storeId}/settings`,
@@ -27,7 +32,8 @@ export const MainNav = ({
 
   return (
     <nav
-      className={(cn("flex items-center space-x-4 lg:space-x-6"), className)}
+      className={cn("flex items-center space-x-4 lg:space-x-6", className)}
+      {...props}
     >
       {routes.map((route) => (
         <Link
