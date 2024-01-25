@@ -30,7 +30,6 @@ const ImageUpload: React.FC<ImageUplaodProps> = ({
   }, []);
 
   const onUpload = (result: any) => {
-    const file = result.info.original_filename;
     const fileSize = result.info.bytes;
 
     // Check if the file size exceeds the specified limit

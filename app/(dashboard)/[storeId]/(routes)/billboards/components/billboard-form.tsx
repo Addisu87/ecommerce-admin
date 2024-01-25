@@ -23,7 +23,6 @@ import {
 import Heading from "@/components/ui/heading";
 import AlertModal from "@/components/modals/alert-modal";
 import { Separator } from "@/components/ui/separator";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "@/components/ui/image-upload";
 
 const formSchema = z.object({
@@ -48,7 +47,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
 
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
 
   const form = useForm<BillboardFormValues>({
     resolver: zodResolver(formSchema),
