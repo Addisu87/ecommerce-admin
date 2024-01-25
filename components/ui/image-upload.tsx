@@ -12,7 +12,6 @@ interface ImageUplaodProps {
   onChange: (value: string) => void;
   onRemove: (value: string) => void;
   value: string[];
-  size: number;
 }
 
 const ImageUpload: React.FC<ImageUplaodProps> = ({
@@ -20,7 +19,6 @@ const ImageUpload: React.FC<ImageUplaodProps> = ({
   onChange,
   onRemove,
   value,
-  size,
 }) => {
   // To remove hydration error
   const [isMounted, setIsMounted] = useState(false);
@@ -30,14 +28,6 @@ const ImageUpload: React.FC<ImageUplaodProps> = ({
   }, []);
 
   const onUpload = (result: any) => {
-    const fileSize = result.info.bytes;
-
-    // Check if the file size exceeds the specified limit
-    if (fileSize > size) {
-      alert(`File size exceeds the allowed limit of ${size} bytes.`);
-      return;
-    }
-
     onChange(result.info.secure_url);
   };
 

@@ -139,7 +139,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
                     disabled={loading}
                     onChange={(url) => field.onChange(url)}
                     onRemove={() => field.onChange("")}
-                    size={1024 * 1024}
                   />
                 </FormControl>
                 <FormMessage />
