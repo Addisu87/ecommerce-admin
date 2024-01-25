@@ -15,7 +15,7 @@ interface BillboardClientProps {
   data: BillboardColumn[];
 }
 
-const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
+export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
 
@@ -37,13 +37,10 @@ const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
       <Separator />
 
       <DataTable columns={columns} data={data} searchKey="label" />
-
       <Heading title="API" description="API calls for Billboards" />
-      <Separator />
 
+      <Separator />
       <ApiList entityName="billboards" entityIdName="billboardId" />
     </>
   );
 };
-
-export default BillboardClient;
