@@ -63,14 +63,21 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
   const onSubmit = async (data: BillboardFormValues) => {
     try {
       setLoading(true);
-      if (initialData) {
-        await axios.patch(
-          `/api/${params.storeId}/billboards/${params.billboardId}`,
-          data
-        );
-      } else {
-        await axios.post(`/api/${params.storeId}/billboards`, data);
-      }
+
+      // if (initialData) {
+      //   await axios.patch(
+      //     `/api/${params.storeId}/billboards/${params.billboardId}`,
+      //     data
+      //   );
+      // } else {
+      //   await axios.post(`/api/${params.storeId}/billboards`, data);
+      // }
+      const response = await axios.post(
+        `/api/${params.storeId}/billboards`,
+        data
+      );
+      console.log("Billboard Created", response);
+
       router.refresh();
       router.push(`/${params.storeId}/billboards`);
       toast.success(toastMessage);

@@ -1,26 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { CldUploadWidget } from "next-cloudinary";
-import { ImagePlus, Trash } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { ImagePlus, Trash } from "lucide-react";
 
-interface ImageUplaodProps {
+interface ImageUploadProps {
   disabled?: boolean;
   onChange: (value: string) => void;
   onRemove: (value: string) => void;
   value: string[];
 }
 
-const ImageUpload: React.FC<ImageUplaodProps> = ({
+const ImageUpload: React.FC<ImageUploadProps> = ({
   disabled,
   onChange,
   onRemove,
   value,
 }) => {
-  // To remove hydration error
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -48,12 +47,18 @@ const ImageUpload: React.FC<ImageUplaodProps> = ({
                 type="button"
                 onClick={() => onRemove(url)}
                 variant="destructive"
-                size="icon"
+                size="sm"
               >
                 <Trash className="h-4 w-4" />
               </Button>
             </div>
-            <Image src={url} fill className="object-cover" alt="Image" />
+            <Image
+              fill
+              className="object-cover"
+              alt="Image"
+              src={url}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            />
           </div>
         ))}
       </div>
@@ -66,8 +71,8 @@ const ImageUpload: React.FC<ImageUplaodProps> = ({
           return (
             <Button
               type="button"
-              variant="secondary"
               disabled={disabled}
+              variant="secondary"
               onClick={onClick}
             >
               <ImagePlus className="h-4 w-4 mr-2" />
