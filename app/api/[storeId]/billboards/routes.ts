@@ -11,7 +11,6 @@ export async function POST(
     const { userId } = auth();
 
     const body = await req.json();
-    console.log("Body", body);
 
     const { label, imageUrl } = body;
 
@@ -49,8 +48,6 @@ export async function POST(
         storeId: params.storeId,
       },
     });
-
-    console.log("Billboard", billboard);
 
     return NextResponse.json(billboard);
   } catch (error) {
