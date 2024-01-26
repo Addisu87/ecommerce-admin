@@ -17,15 +17,19 @@ const DashboardLayout = async ({
     redirect("/sign-in");
   }
 
-  const store = await prismadb.store.findFirst({
-    where: {
-      id: params.storeId,
-      userId,
-    },
-  });
+  try {
+    const store = await prismadb.store.findFirst({
+      where: {
+        id: params.storeId,
+        userId,
+      },
+    });
 
-  if (!store) {
-    redirect("/");
+    if (!store) {
+      redirect("/");
+    }
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
   }
 
   return (

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/ui/data-table";
 import { ApiList } from "@/components/ui/api-list";
-import Heading from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 
 import { BillboardColumn, columns } from "./columns";
 
@@ -24,13 +24,12 @@ export const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
       <div className="flex items-center justify-between">
         <Heading
           title={`Billboards (${data.length})`}
-          description="Manage billboards for your store."
+          description="Manage billboards for your store"
         />
         <Button
           onClick={() => router.push(`/${params.storeId}/billboards/new`)}
         >
-          <Plus className="mr-2 h-4 w-4" />
-          Add New
+          <Plus className="mr-2 h-4 w-4" /> Add New
         </Button>
       </div>
 

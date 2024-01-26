@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import AlertModal from "@/components/modals/alert-modal";
-import Heading from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 
 import {
   Select,

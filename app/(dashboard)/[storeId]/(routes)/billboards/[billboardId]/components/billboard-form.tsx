@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import * as z from "zod";
 import axios from "axios";
 import { useState } from "react";
@@ -22,7 +23,7 @@ import {
 } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import AlertModal from "@/components/modals/alert-modal";
-import Heading from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 import ImageUpload from "@/components/ui/image-upload";
 
 const formSchema = z.object({
@@ -77,6 +78,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
       router.push(`/${params.storeId}/billboards`);
       toast.success(toastMessage);
     } catch (error: any) {
+      console.error("API Request Error:", error);
       toast.error("Something went wrong.");
     } finally {
       setLoading(false);

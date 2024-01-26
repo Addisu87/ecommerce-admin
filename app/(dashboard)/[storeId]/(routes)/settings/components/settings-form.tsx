@@ -20,7 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import Heading from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 import AlertModal from "@/components/modals/alert-modal";
 import { Separator } from "@/components/ui/separator";
 import { useOrigin } from "@/hooks/use-origin";
