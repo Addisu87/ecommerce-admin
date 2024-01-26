@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator";
 
 import { columns, CategoryColumn } from "./columns";
 import { ApiList } from "@/components/ui/api-list";
-import Heading from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 
 interface CategoriesClientProps {
   data: CategoryColumn[];
