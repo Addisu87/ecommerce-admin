@@ -120,8 +120,8 @@ model Image {
 
 model Order {
   id         String    @id @default(uuid())
-  storedId   String     // Foreign Key to Store
-  store      Store     @relation("StoreToOrder", fields: [storedId], references: [id])
+  storeId    String     // Foreign Key to Store
+  store      Store     @relation("StoreToOrder", fields: [storeId], references: [id])
   orderItems OrderItem[] // Relation to OrderItem model
   isPaid     Boolean   @default(false)
   phone      String    @default("")
@@ -129,7 +129,7 @@ model Order {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 
-  @@index([storedId])
+  @@index([storeId])
 }
 
 // Intermediary for a many-to-many relationship
@@ -137,9 +137,9 @@ model OrderItem {
   id        String   @id @default(uuid())
   orderId   String   // Foreign key to Order
   order     Order    @relation(fields: [orderId], references: [id])
-  prodcutId String    // Foreign key to Prodcut
-  product   Product  @relation(fields: [prodcutId], references: [id])
+  productId String    // Foreign key to Prodcut
+  product   Product  @relation(fields: [productId], references: [id])
 
   @@index([orderId])
-  @@index([prodcutId])
+  @@index([productId])
 }
