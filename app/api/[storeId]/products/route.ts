@@ -73,12 +73,14 @@ export async function POST(
         categoryId,
         colorId,
         sizeId,
+        isArchived,
+        isFeatured,
+        storeId: params.storeId,
         images: {
           createMany: {
             data: [...images.map((image: { url: string }) => image)],
           },
         },
-        storeId: params.storeId,
       },
     });
 
