@@ -1,5 +1,11 @@
 "use client";
 
+import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
+import axios from "axios";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,12 +14,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-import axios from "axios";
-
 import { Button } from "@/components/ui/button";
 import AlertModal from "@/components/modals/alert-modal";
 
@@ -35,17 +35,14 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     toast.success("Product Id copied to the clipboard.");
   };
 
-  const onConfirm = async () => {
+  const onDelete = async () => {
     try {
       setLoading(true);
       await axios.delete(`/api/${params.storeId}/products/${data.id}`);
       router.refresh();
-
       toast.success("Product deleted.");
     } catch (error) {
-      toast.error(
-        "Make sure you removed all products using this category first."
-      );
+      toast.error("Something went wrong.");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -57,7 +54,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onConfirm={onConfirm}
+        onConfirm={onDelete}
         loading={loading}
       />
       <DropdownMenu>
