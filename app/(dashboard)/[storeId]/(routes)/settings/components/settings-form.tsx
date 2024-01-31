@@ -26,15 +26,15 @@ import { Separator } from "@/components/ui/separator";
 import { useOrigin } from "@/hooks/use-origin";
 import { ApiAlert } from "@/components/ui/api-alert";
 
-interface SettingsFormProps {
-  initialData: Store;
-}
-
 const formSchema = z.object({
-  name: z.string().min(1),
+  name: z.string().min(2),
 });
 
 type SettingsFormValues = z.infer<typeof formSchema>;
+
+interface SettingsFormProps {
+  initialData: Store;
+}
 
 const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
   const [open, setOpen] = useState(false);

@@ -24,7 +24,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import AlertModal from "@/components/modals/alert-modal";
 import { Heading } from "@/components/ui/heading";
-import ImageUpload from "@/components/ui/image-upload";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -53,7 +52,6 @@ export const SizeForm: React.FC<SizeFormProps> = ({ initialData }) => {
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
       name: "",
-      value: "",
     },
   });
 
