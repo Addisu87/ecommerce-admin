@@ -1,5 +1,11 @@
 "use client";
 
+import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
+import axios from "axios";
+import toast from "react-hot-toast";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,12 +14,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-import axios from "axios";
-
 import { Button } from "@/components/ui/button";
 import AlertModal from "@/components/modals/alert-modal";
 
@@ -69,7 +69,9 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
+
           <DropdownMenuSeparator />
+
           <DropdownMenuItem onClick={() => onCopy(data.id)}>
             <Copy className="mr-2 h-4 w-4" />
             Copy Id
