@@ -6,6 +6,8 @@ import StoreSwitcher from "@/components/store-switcher";
 import prismadb from "@/lib/prismadb";
 import { ThemeToggle } from "@/components/theme-toggle";
 
+export const revalidate = 0;
+
 const Navbar = async () => {
   const { userId } = auth();
 
@@ -21,8 +23,6 @@ const Navbar = async () => {
 
   return (
     <div className="border-b">
-      {/* TODO: Reponsive page - breadcrumbs */}
-      {/* TODO: user nave */}
       <div className="flex h-16 items-center px-4">
         <StoreSwitcher items={stores} />
         <MainNav className="mx-6" />

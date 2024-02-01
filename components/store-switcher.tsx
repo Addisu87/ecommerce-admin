@@ -64,7 +64,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
           className={cn("w-[200px] justify-between", className)}
         >
           <Store className="mr-2 h-4 w-4" />
-          <span className="text-base font-medium">{currentStore?.label}</span>
+          <span className="text-sm font-normal">{currentStore?.label}</span>
 
           <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -79,7 +79,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
                 <CommandItem
                   key={store.value}
                   onSelect={() => onStoreSelect(store)}
-                  className="text-base font-medium"
+                  className="text-sm font-normal"
                 >
                   <Store className="mr-2 h-4 w-4" />
                   {store.label}
@@ -107,7 +107,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
                 }}
               >
                 <PlusCircle className="mr-2 h-4 w-4" />
-                <span className="text-base font-medium">Create Store</span>
+                <span className="text-sm font-normal">Create Store</span>
               </CommandItem>
             </CommandGroup>
           </CommandList>

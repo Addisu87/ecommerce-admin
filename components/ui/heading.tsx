@@ -14,7 +14,7 @@ export const Heading: React.FC<HeadingProps> = ({ title, description }) => {
         {title}
       </h2>
       <p
-        className={`${lusitana.className} text-base text-gray-800 md:text-lg md:leading-normal text-muted-foreground`}
+        className={`${lusitana.className} text-sm text-gray-800 md:text-base md:leading-normal text-muted-foreground`}
       >
         {description}
       </p>
