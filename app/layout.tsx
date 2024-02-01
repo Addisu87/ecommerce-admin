@@ -5,10 +5,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 import ModalProvider from "@/providers/modal-provider";
 import ToasterProvider from "@/providers/toast-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { lusitana } from "@/components/ui/fonts";
 
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -23,7 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${lusitana.className} antialiased`}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <ToasterProvider />
             <ModalProvider />

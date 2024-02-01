@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { CreditCard, DollarSign, Package } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -9,6 +10,7 @@ import { getSalesCount } from "@/actions/get-sales-count";
 import { getStockCount } from "@/actions/get-stock-count";
 import Overview from "@/components/overview";
 import { getGraphRevenue } from "@/actions/get-graph-revenue";
+import { lusitana } from "@/components/ui/fonts";
 
 interface DashboardPageProps {
   params: { storeId: string };
@@ -22,52 +24,57 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
 
   return (
     <div className="flex-col">
-      <div className="flex-1 space-y-4 p-8 pt-6">
+      <div className="flex-1 space-y-4 p-8 pt-4">
         <Heading title="Dashboard" description="Overview of your storeId" />
         <Separator />
-        <div className="grid gap-4 grid-cols-3">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Card className="rounded-xl bg-gray-50 p-2 shadow-sm">
+            <CardHeader className="flex flex-row items-center justify-start">
+              <DollarSign className="h-5 w-5 text-gray-700" />
+              <CardTitle className="ml-2 text-sm font-medium">
                 Total Revenue
               </CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent className="text-2xl font-bold">
-              <div className="text-2xl font-bold">
-                {formatter.format(totalRevenue)}
-              </div>
+            <CardContent
+              className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+            >
+              {formatter.format(totalRevenue)}
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Sales</CardTitle>
-              <CreditCard className="h-4 w-4 text-muted-foreground" />
+          <Card className="rounded-xl bg-gray-50 p-2 shadow-sm">
+            <CardHeader className="flex flex-row items-center justify-start">
+              <CreditCard className="h-5 w-5 text-gray-700" />
+              <CardTitle className="ml-2 text-sm font-medium">Sales</CardTitle>
             </CardHeader>
-            <CardContent className="text-2xl font-bold">
-              <div className="text-2xl font-bold">+{salesCount}</div>
+            <CardContent
+              className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+            >
+              +{salesCount}
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
+          <Card className="rounded-xl bg-gray-50 p-2 shadow-sm">
+            <CardHeader className="flex flex-row items-center justify-start">
+              <Package className="h-5 w-5 text-gray-700" />
+              <CardTitle className="ml-2 text-sm font-medium">
                 Products In Stock
               </CardTitle>
-              <Package className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent className="text-2xl font-bold">
-              <div className="text-2xl font-bold">{stockCount}</div>
+            <CardContent
+              className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+            >
+              {stockCount}
             </CardContent>
           </Card>
         </div>
       </div>
-      <Card className="col-span-4">
+      <Card className="rounded-xl shadow-sm w-11/12 mx-auto bg-gray-50 p-2">
         <CardHeader>
-          <CardTitle>OverView</CardTitle>
+          <CardTitle className="ml-2 text-xl font-semibold">OverView</CardTitle>
         </CardHeader>
-        <CardContent className="pl-2">
+        <CardContent className="pl-2 text-lg">
           <Overview data={graphRevenue} />
         </CardContent>
       </Card>
