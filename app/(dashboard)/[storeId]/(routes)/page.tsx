@@ -22,52 +22,49 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
   const stockCount = await getStockCount(params.storeId);
   const graphRevenue = await getGraphRevenue(params.storeId);
 
+  const showStats = [
+    {
+      id: 1,
+      icon: <DollarSign />,
+      title: "Total Revenue",
+      content: formatter.format(totalRevenue),
+    },
+    {
+      id: 2,
+      icon: <CreditCard />,
+      title: "Sales",
+      content: salesCount,
+    },
+    {
+      id: 3,
+      icon: <Package />,
+      title: "Products In Stock",
+      content: stockCount,
+    },
+  ];
+
   return (
     <div className="flex-col">
-      <div className="flex-1 space-y-4 p-8 pt-4">
+      <div className="flex-1 space-y-2 p-8 pt-4">
         <Heading title="Dashboard" description="Overview of your storeId" />
         <Separator />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <Card className="rounded-xl bg-gray-50 p-2 shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-start">
-              <DollarSign className="h-5 w-5 text-gray-700" />
-              <CardTitle className="ml-2 text-sm font-medium">
-                Total Revenue
-              </CardTitle>
-            </CardHeader>
-            <CardContent
-              className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
-            >
-              {formatter.format(totalRevenue)}
-            </CardContent>
-          </Card>
-
-          <Card className="rounded-xl bg-gray-50 p-2 shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-start">
-              <CreditCard className="h-5 w-5 text-gray-700" />
-              <CardTitle className="ml-2 text-sm font-medium">Sales</CardTitle>
-            </CardHeader>
-            <CardContent
-              className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
-            >
-              +{salesCount}
-            </CardContent>
-          </Card>
-
-          <Card className="rounded-xl bg-gray-50 p-2 shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-start">
-              <Package className="h-5 w-5 text-gray-700" />
-              <CardTitle className="ml-2 text-sm font-medium">
-                Products In Stock
-              </CardTitle>
-            </CardHeader>
-            <CardContent
-              className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
-            >
-              {stockCount}
-            </CardContent>
-          </Card>
+          {showStats.map((stat) => (
+            <Card key={stat.id} className="rounded-xl bg-gray-50 p-2 shadow-sm">
+              <CardHeader className="flex flex-row items-center gap-2 justify-start">
+                <span className="h-4 w-4 text-gray-700">{stat.icon}</span>
+                <CardTitle className="ml-2 text-sm font-medium">
+                  {stat.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent
+                className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+              >
+                {stat.content}
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
       <Card className="rounded-xl shadow-sm w-11/12 mx-auto bg-gray-50 p-2">
