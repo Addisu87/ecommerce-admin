@@ -85,7 +85,7 @@ export const MainNav = ({
           className={cn(
             "flex h-[32px] grow items-center justify-center gap-2 rounded-md text-sm font-medium bg-gray-50 p-3 transition-colors hover:text-primary md:flex-none md:justify-start md:p-2 md:px-3",
             route.active
-              ? "text-black dark:text-white"
+              ? "text-black dark:text-white dark:bg-gray-800"
               : "text-muted-foreground"
           )}
         >
