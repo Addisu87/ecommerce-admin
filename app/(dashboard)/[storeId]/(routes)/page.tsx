@@ -53,13 +53,15 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
           {showStats.map((stat) => (
             <Card key={stat.id} className="rounded-xl bg-gray-50 p-2 shadow-sm">
               <CardHeader className="flex flex-row items-center gap-2 justify-start">
-                <span className="h-4 w-4 text-gray-700">{stat.icon}</span>
-                <CardTitle className="ml-2 text-sm font-medium">
+                <span className="h-4 w-4 text-gray-700 dark:text-black">
+                  {stat.icon}
+                </span>
+                <CardTitle className="ml-2 text-sm font-medium dark:text-black">
                   {stat.title}
                 </CardTitle>
               </CardHeader>
               <CardContent
-                className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+                className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl dark:text-black`}
               >
                 {stat.content}
               </CardContent>
