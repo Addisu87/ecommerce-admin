@@ -30,7 +30,7 @@ const Navbar = async () => {
           className="hidden items-center justify-between gap-2 md:flex"
         >
           <Boxes className="h-6 w-6" />
-          <h1 className="text-lg font-semibold">e-Commerce App</h1>
+          <h1 className="text-lg font-semibold">e-Commerce Admin</h1>
         </Link>
 
         <div className={cn("block md:!hidden")}>
