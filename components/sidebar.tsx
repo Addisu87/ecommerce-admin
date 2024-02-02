@@ -28,7 +28,7 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
       className={cn(
         `relative hidden h-screen border-r pt-20 md:block`,
         status && "duration-500",
-        isOpen ? "w-72" : "w-[78px]",
+        isOpen ? "w-56" : "w-[78px]",
         className
       )}
     >
@@ -42,7 +42,10 @@ const SideBar: React.FC<SidebarProps> = ({ className }) => {
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <div className="mt-3 space-y-1">
-            <SideNav className="transition-all duration-300 group-hover:z-50 group-hover:ml-4 group-hover:rounded group-hover:bg-foreground group-hover:p-2 group-hover:opacity-100" />
+            <SideNav
+              isOpen={isOpen}
+              className="transition-all duration-300 group-hover:z-2 group-hover:ml-3 group-hover:rounded group-hover:p-2 group-hover:opacity-30"
+            />
           </div>
         </div>
       </div>

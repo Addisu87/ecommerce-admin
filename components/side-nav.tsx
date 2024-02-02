@@ -19,8 +19,9 @@ import { buttonVariants } from "./ui/button";
 
 export const SideNav = ({
   className,
+  isOpen,
   ...props
-}: React.HtmlHTMLAttributes<HTMLElement>) => {
+}: React.HtmlHTMLAttributes<HTMLElement> & { isOpen: boolean }) => {
   const pathname = usePathname();
   const params = useParams();
 
@@ -86,15 +87,21 @@ export const SideNav = ({
             "group relative flex h-12 justify-start",
             item.active
               ? "font-bold hover:bg-muted dark:text-white dark:bg-gray-800"
-              : "text-muted-foreground"
+              : "text-muted-foreground",
+            isOpen && "group-hover:opacity-100"
           )}
         >
           <item.icon className={cn("h-5 w-5")} />
-          <span
-            className={cn("absolute left-12 text-base duration-200", className)}
-          >
-            {item.label}
-          </span>
+          {isOpen && (
+            <span
+              className={cn(
+                "absolute left-12 text-base duration-200",
+                className
+              )}
+            >
+              {item.label}
+            </span>
+          )}
         </Link>
       ))}
     </nav>
