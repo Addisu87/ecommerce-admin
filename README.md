@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## About this project
+
+This project is an admin dashboard shows a modern e-commerce app (with features like authentication, subscriptions, API routes, static pages for docs ...etc) that work in Next.js 14 and server components.
 
 ## Cloning the repository
 
@@ -6,16 +8,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 https://github.com/Addisu87/ecommerce-admin.git
 ```
 
-## Connect to PlanetScale and Push Prisma
+## Running Locally(Getting Started)
+
+1 - Install dependencies using pnpm:
 
 ```bash
-npx prisma generate
-npx prisma db push
+npm install
 ```
 
-## Getting Started
+2- Copy .env.example to .env.local and update the variables.
 
-First, run the development server:
+```bash
+cp .env.example .env.local
+```
+
+3-First, run the development server:
 
 ```bash
 npm run dev
@@ -23,6 +30,13 @@ npm run dev
 yarn dev
 # or
 pnpm dev
+```
+
+## Connect to PlanetScale and Push Prisma
+
+```bash
+npx prisma generate
+npx prisma db push
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -43,23 +57,26 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - Control products are "featured" to show on the homepage
 - Able to see orders, sales, etc.
 - Show graphs of your revenue etc.
-- Add Clerk Authentication!
 - Order creation
 - Stripe checkout
 - Stripe webhooks
-- MySQL + Prisma + PlanetScale
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- New /app dir,
+- Routing, Layouts, Nested Layouts and Layout Groups
+- Data Fetching, Caching and Mutation
+- Loading UI
+- Route handlers
+- Metadata files
+- Server and Client Components
+- API Routes and Middlewares
+- Authentication using Clerk.js
+- ORM using Prisma
+- Database on PlanetScale
+- UI Components built using Radix UI
+- Documentation and blog using MDX and Contentlayer
+- Subscriptions using Stripe
+- Styled using Tailwind CSS
+- Validations using Zod
+- Written in TypeScript
