@@ -1,12 +1,13 @@
 import { UserButton, auth } from "@clerk/nextjs";
+import { cn } from "@/lib/utils";
+import { Boxes } from "lucide-react";
 import { redirect } from "next/navigation";
 
-import { MainNav } from "@/components/main-nav";
-import StoreSwitcher from "@/components/store-switcher";
-import prismadb from "@/lib/prismadb";
+import MobileSidebar from "@/components/mobile-sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-export const revalidate = 0;
+import prismadb from "@/lib/prismadb";
+import StoreSwitcher from "@/components/store-switcher";
+import Link from "next/link";
 
 const Navbar = async () => {
   const { userId } = auth();
@@ -22,15 +23,26 @@ const Navbar = async () => {
   });
 
   return (
-    <div className="border-b">
-      <div className="flex h-16 items-center px-4">
-        <StoreSwitcher items={stores} />
-        <MainNav className="mx-6" />
-        <div className="ml-auto flex items-center space-x-4">
+    <div className="supports-backdrop-blur:bg-background/60 fixed left-0 right-0 top-0 z-20 border-b bg-background/95 backdrop-blur">
+      <nav className="flex h-16 items-center justify-between px-4">
+        <Link
+          href={"/"}
+          className="hidden items-center justify-between gap-2 md:flex"
+        >
+          <Boxes className="h-6 w-6" />
+          <h1 className="text-lg font-semibold">e-Commerce App</h1>
+        </Link>
+
+        <div className={cn("block md:!hidden")}>
+          <MobileSidebar />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <StoreSwitcher items={stores} />
           <ThemeToggle />
           <UserButton afterSignOutUrl="/" />
         </div>
-      </div>
+      </nav>
     </div>
   );
 };

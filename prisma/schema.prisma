@@ -144,13 +144,3 @@ model OrderItem {
   @@index([orderId])
   @@index([productId])
 }
-
-
-model User {
-  id            String @id @default(uuid())
-  name          String?
-  email         String? @unique
-  emailVerified  DateTime?
-  image         String?
-  createdAt     DateTime @default(now())
-}
