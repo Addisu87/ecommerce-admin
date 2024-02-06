@@ -11,6 +11,8 @@ interface SettingsPageProps {
   };
 }
 
+export const revalidate = 3600; // revalidate at most every hour
+
 const SettingsPage: React.FC<SettingsPageProps> = async ({ params }) => {
   const { userId } = auth();
 

@@ -6,6 +6,8 @@ import { formatter } from "@/lib/utils";
 import { ProductColumn } from "./components/columns";
 import { ProductClient } from "./components/client";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 const ProductsPage = async ({ params }: { params: { storeId: string } }) => {
   const products = await prismadb.product.findMany({
     where: {

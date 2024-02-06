@@ -5,6 +5,8 @@ import prismadb from "@/lib/prismadb";
 import { CategoryColumn } from "./components/columns";
 import { CategoriesClient } from "./components/client";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 const CategoriesPage = async ({ params }: { params: { storeId: string } }) => {
   const categories = await prismadb.category.findMany({
     where: {

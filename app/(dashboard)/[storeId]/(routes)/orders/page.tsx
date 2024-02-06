@@ -6,6 +6,8 @@ import { formatter } from "@/lib/utils";
 import { OrderColumn } from "./components/columns";
 import { OrderClient } from "./components/client";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
   const orders = await prismadb.order.findMany({
     where: {

@@ -5,6 +5,8 @@ import prismadb from "@/lib/prismadb";
 import { SizeColumn } from "./components/columns";
 import { SizesClient } from "./components/client";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 const SizesPage = async ({ params }: { params: { storeId: string } }) => {
   const sizes = await prismadb.size.findMany({
     where: {

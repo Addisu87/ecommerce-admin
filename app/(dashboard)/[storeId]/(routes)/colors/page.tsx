@@ -5,6 +5,8 @@ import prismadb from "@/lib/prismadb";
 import { ColorColumn } from "./components/columns";
 import { ColorsClient } from "./components/client";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 const ColorsPage = async ({ params }: { params: { storeId: string } }) => {
   const colors = await prismadb.color.findMany({
     where: {

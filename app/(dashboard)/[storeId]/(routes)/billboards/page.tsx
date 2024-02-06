@@ -5,6 +5,8 @@ import prismadb from "@/lib/prismadb";
 import { BillboardColumn } from "./components/columns";
 import { BillboardClient } from "./components/client";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const billboards = await prismadb.billboard.findMany({
     where: {
