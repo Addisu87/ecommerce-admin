@@ -61,7 +61,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
           role="combobox"
           aria-expanded={open}
           aria-label="Select a store"
-          className={cn("w-[200px] justify-between", className)}
+          className={cn("w-[170px] md:w-[200px] justify-between", className)}
         >
           <Store className="mr-2 h-4 w-4" />
           <span className="text-sm font-normal">{currentStore?.label}</span>

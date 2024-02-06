@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Boxes, MenuIcon } from "lucide-react";
+
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { MenuIcon } from "lucide-react";
-import { SideNav } from "./side-nav";
+import { SideNav } from "@/components/side-nav";
+import { useSidebar } from "@/hooks/use-sidebar";
 
 const MobileSidebar = () => {
   const [open, setOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const { isOpen } = useSidebar();
 
   useEffect(() => {
     setIsMounted(true);
@@ -23,12 +26,11 @@ const MobileSidebar = () => {
         <SheetTrigger asChild>
           <div className="flex items-center justify-center gap-2">
             <MenuIcon />
-            <h1 className="text-lg font-semibold">e-Commerce Admin</h1>
           </div>
         </SheetTrigger>
         <SheetContent side="left" className="w-72">
           <div className="px-1 py-6 pt-16">
-            <SideNav />
+            <SideNav isOpen={isOpen} />
           </div>
         </SheetContent>
       </Sheet>
