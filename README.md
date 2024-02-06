@@ -8,7 +8,7 @@ The project is an integrated system designed to function as an Admin Dashboard, 
 https://github.com/Addisu87/ecommerce-admin.git
 ```
 
-## Running Locally(Getting Started)
+## Running Locally
 
 1 - Install dependencies using pnpm:
 
@@ -84,14 +84,10 @@ Feel free to check the [issues page](https://github.com/Addisu87/ecommerce-admin
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project give me a star.
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank Antonio Erdeljac.
