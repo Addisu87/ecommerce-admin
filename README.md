@@ -1,6 +1,6 @@
 ## About this project
 
-This project is an admin dashboard shows a modern e-commerce app (with features like authentication, subscriptions, API routes, static pages for docs ...etc) that work in Next.js 14 and server components.
+The project is an integrated system designed to function as an Admin Dashboard, serving the roles of Content Management System (CMS), Administration, and API provider. The main features of the project include the ability to manage multiple vendors through a single CMS, perform CRUD operations on billboards, categories, and products, and generate APIs for various use cases. The system also supports CRUD operations for filters (variants) such as Color and Size, enabling a comprehensive management of the available data.
 
 ## Cloning the repository
 
@@ -41,27 +41,7 @@ npx prisma db push
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
 ## Key Features
-
-- Shadcn UI for Admin
-- Admin dashboard serve as both CMS, Admin and API
-- Control multiple vendoros via single CMS
-- CRUD Billboards and can use them standalone and our admin generate API for all cases.
-- CRUD operations for categories, products.
-- CRUD filters(variants) like Color and Size.
-- Search through categories, products, sizes, colors, billboards with include pagination
-- Control products are "featured" to show on the homepage
-- Able to see orders, sales, etc.
-- Show graphs of your revenue etc.
-- Order creation
-- Stripe checkout
-- Stripe webhooks
-
-## Features
 
 - New /app dir,
 - Routing, Layouts, Nested Layouts and Layout Groups
@@ -74,9 +54,44 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - Authentication using Clerk.js
 - ORM using Prisma
 - Database on PlanetScale
-- UI Components built using Radix UI
-- Documentation and blog using MDX and Contentlayer
-- Subscriptions using Stripe
+- UI Components built using Shadcn UI
+- CRUD operations
+- Subscriptions(checkout, webhooks) using Stripe
 - Styled using Tailwind CSS
 - Validations using Zod
+- Able to see orders, sales, etc.
 - Written in TypeScript
+
+<!-- AUTHORS -->
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Addisu Haile**
+
+- GitHub: [![GitHub Badge](https://img.shields.io/badge/-Addisu87-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/Addisu87)
+- Twitter: [![Twitter Badge](https://img.shields.io/badge/-AddisuTedla-white?logo=Twitter&logoColor=1DA1F2&style=plastic)](https://twitter.com/AddisuTedla)
+- LinkedIn: [![LinkedIn Badge](https://img.shields.io/badge/-addisu_tedla-white?logo=LinkedIn&logoColor=1DA1F2&style=plastic)](https://linkedin.com/in/addisu-tedla/)
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Addisu87/ecommerce-admin/issues).
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+> Write a message to encourage readers to support your project
+
+If you like this project give me a star.
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> Give credit to everyone who inspired your codebase.
+
+I would like to thank Antonio Erdeljac.
