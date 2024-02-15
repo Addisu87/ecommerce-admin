@@ -43,24 +43,27 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Key Features
 
-- New /app dir,
-- Routing, Layouts, Nested Layouts and Layout Groups
-- Data Fetching, Caching and Mutation
-- Loading UI
-- Route handlers
-- Metadata files
-- Server and Client Components
-- API Routes and Middlewares
-- Authentication using Clerk.js
-- ORM using Prisma
-- Database on PlanetScale
-- UI Components built using Shadcn UI
-- CRUD operations
-- Subscriptions(checkout, webhooks) using Stripe
-- Styled using Tailwind CSS
-- Validations using Zod
-- Able to see orders, sales, etc.
-- Written in TypeScript
+📁 New /app dir
+🛣️ Routing, Layouts, Nested Layouts, and Layout Groups
+🔄 Data Fetching, Caching, and Mutation
+⏳ Loading UI
+🚀 Route handlers
+📄 Metadata files
+🖥️ Server and Client Components
+🌐 API Routes and Middlewares
+🔐 Authentication using Clerk.js
+🛠️ ORM using Prisma
+🌍 Database on PlanetScale
+🖌️ UI Components built using Shadcn UI
+🔄 CRUD operations
+🛡️ Zustand as state management library
+🎨 Icon toolkit using lucide-react
+🔄 Subscriptions (checkout, webhooks) using Stripe
+🎨 Styled using Tailwind CSS
+✅ Validations using Zod
+📤 Uploading images using next-cloudinary
+📊 Able to see orders, sales, etc.
+📝 Written in TypeScript
 
 <!-- AUTHORS -->
 
