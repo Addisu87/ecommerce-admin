@@ -41,6 +41,10 @@ npx prisma db push
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Live Demo (if available)
+
+[Live Demo Link](https://ecommerce-admin-bice-mu.vercel.app/)
+
 ## Key Features
 
 📁 New /app dir
