@@ -47,7 +47,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   [Live Demo Link](https://ecommerce-store-addisu87.vercel.app)
 
 - Admin
-  [Live Demo Link](https://ecommerce-admin-bice-mu.vercel.app/)
+  [Live Demo Link](https://ecommerce-admin-three-ashy.vercel.app)
 
 ## Key Features
 
